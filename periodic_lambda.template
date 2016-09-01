@@ -52,5 +52,14 @@
         }]
       }
     }
+  },
+
+  "Outputs": {
+    "PeriodicFunction": {
+      "Description": "Periodic Function",
+      "Value": {
+        "Fn::GetAtt": [ "PeriodicFunction", "Arn" ]
+      }
+    }
   }
 }
