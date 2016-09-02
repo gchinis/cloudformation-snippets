@@ -12,11 +12,9 @@
     "CodeHandler": {
       "Description": "The name of the function that Lambda calls to start running your code"
     },
-
     "LambdaRole": {
       "Description": "IAM role to be assumed by lambda "
     },
-
     "Schedule": {
       "Description": "Periodic schedule expression. See http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html"
     }
@@ -24,7 +22,15 @@
 
   "Resources": {
 
-
+    "PeriodicPermission": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "FunctionName": { "Ref": "PeriodicFunction" },
+        "Action": "lambda:InvokeFunction",
+        "Principal": "events.amazonaws.com",
+        "SourceArn": { "Fn::GetAtt": ["PeriodicTrigger", "Arn"] }
+      }
+    },
 
     "PeriodicFunction": {
       "Type" : "AWS::Lambda::Function",
