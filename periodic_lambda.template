@@ -9,7 +9,7 @@
     "CodeS3Key": {
       "Description": "S3 object key containing the lambda code"
     },
-    "CodeHander": {
+    "CodeHandler": {
       "Description": "The name of the function that Lambda calls to start running your code"
     },
 
@@ -24,6 +24,8 @@
 
   "Resources": {
 
+
+
     "PeriodicFunction": {
       "Type" : "AWS::Lambda::Function",
       "Properties" : {
@@ -32,7 +34,7 @@
           "S3Key": { "Ref": "CodeS3Key"}
         },
         "Description" : "BillingMonitor",
-        "Handler" : { "Ref": "CodeHander" },
+        "Handler" : { "Ref": "CodeHandler" },
         "MemorySize" : "128",
         "Role" : { "Ref": "LambdaRole" },
         "Runtime" : "python2.7",
