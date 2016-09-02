@@ -1,0 +1,4 @@
+deploy:
+  provider: s3
+  bucket: "cloudformation-snippets"
+
