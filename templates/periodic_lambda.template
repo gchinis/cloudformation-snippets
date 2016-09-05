@@ -3,13 +3,9 @@
   "Description": "Periodically invoked lambda",
 
   "Parameters": {
-    "CodeS3Bucket": {
+    "Code": {
       "Type": "String",
       "Description": "S3 bucket containing the lambda code"
-    },
-    "CodeS3Key": {
-      "Type": "String",
-      "Description": "S3 object key containing the lambda code"
     },
     "CodeHandler": {
       "Type": "String",
@@ -40,10 +36,7 @@
     "PeriodicFunction": {
       "Type" : "AWS::Lambda::Function",
       "Properties" : {
-        "Code" : {
-          "S3Bucket": { "Ref": "CodeS3Bucket"},
-          "S3Key": { "Ref": "CodeS3Key"}
-        },
+        "Code" :  { "ZipFile": { "Ref": "Code"} },
         "Description" : "BillingMonitor",
         "Handler" : { "Ref": "CodeHandler" },
         "MemorySize" : "128",
