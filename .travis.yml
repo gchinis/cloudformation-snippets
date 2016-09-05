@@ -14,7 +14,7 @@ deploy:
   bucket: "cloudformation-snippets"
   acl: authenticated_read
   skip_cleanup: true
-  upload-dir: templates
+  local_dir: templates
 
 
 
