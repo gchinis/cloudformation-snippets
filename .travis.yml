@@ -5,4 +5,8 @@ script: true
 deploy:
   provider: s3
   bucket: "cloudformation-snippets"
+  acl: "authorized-read"
   skip_cleanup: true
+
+
+
